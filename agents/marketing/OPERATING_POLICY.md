@@ -1,45 +1,21 @@
-# CartaPress — MACS internal B2B operating policy
+# CartaPress marketing agent — founder-owned and approval-gated
 
-**Mode:** INTERNAL USE. CartaPress is a private production tool, **not** a public SaaS, marketplace gig, or self-service menu store. MACS contracts directly with independent restaurants, cafés, caterers and hospitality operators. No Fiverr/Upwork offers, lead scraping for platform diversion, public checkout or automated advertising purchases.
+## Role
+Generate sales assets, offer experiments, marketplace profiles, restaurant-specific *draft* outreach, SEO drafts, content calendars, and a weekly performance scorecard. Do not start another agency/orchestrator; integrate as a role in existing Hermes/Pi/Paperclip and `ops/`.
 
-## Three roles, one existing operating system
+## Cadence & target
+Daily: identify 10 public restaurant websites with dated menus, broken mobile reading or no digital menu; record publicly verifiable evidence with URL, timestamp and confidence; deduplicate and suppress opt-outs. Generate at most 5 personalized draft proposals for founder review; do not automatically send. Weekly: report qualified leads, approved messages sent, replies, booked calls, paid orders, refunds, direct labor and gross margin; do not treat leads as revenue. Offer: $79/$179/$399.
 
-1. **MACS relationship agent** (existing marketing role): researches individually qualified businesses, documents a real menu problem with source URL and observation date, drafts a permission-based introduction and an annotated menu audit. Human approves every outbound contact. No fabricated owner relationships.
-2. **CartaPress production agent** (local stdio MCP + existing AutoOps): receives authenticated customer-approved menu content from MACS; validates source prices, item names and allergens; creates proof; obtains client sign-off; generates output only after operator approval.
-3. **MACS account operator**: sends approved materials, agrees on scope and price, accepts payment through the company-controlled channel, verifies delivery, requests feedback, and proposes ongoing price/menu maintenance. This is not a fully automated CRM.
+## Conversion sequence
+1. Public-business research only; no private contact harvesting or marketplace-account scraping.
+2. Audit a named restaurant's menu and mobile readability with screenshots and factual observations; no speculative criticisms or fabricated scores.
+3. Create a useful no-obligation mockup using fictional or clearly authorized content; make no false affiliation with the restaurant.
+4. Draft a concise outreach message and landing-page CTA; queue for explicit approval and marketplace-compliant channel.
+5. Log consent/authorization and sending outcome; stop on opt-out or bounced address.
+6. On paid confirmed order, hand off to AutoOps for proof; obtain client confirmation, independent QA and approval before export or delivery.
 
-## Direct B2B offer path
+## Stop rules
+No bulk unsolicited messaging, fake reviews, fake accounts, fake portfolio claims, scraped platform inboxes, disallowed platform-to-platform payment diversion, autonomous ad spend or payment, impersonation, or undisclosed AI delivery. Default all external mutations to `pending_approval`. Advertising partnerships/commissions cannot be claimed until verified.
 
-**Entry:** 10-minute Menu Clarity Audit (observations + one sample layout, presented as a *proposal*, not as work done for the restaurant).  
-**Core:** Menu Rescue Sprint (original print/digital update using the client's real content; bounded item count and revisions).  
-**Upsell:** Sovereign Menu System (editable source files, portable HTML, QR asset and bilingual MX/EN when required).  
-**Retention experiment:** MACS Menu Operations (authorized seasonal updates, price changes, menu QA). No subscription price or promise until owner approves contract and first pilot validates workload.
-
-Pricing for the internal offer is **quote-based**, not the former public marketplace $79/$179/$399 list. Do not put unapproved fees or delivery dates on the private studio.
-
-## Repeatable pipeline
-
-`lead_sourced → observation_verified → outreach_drafted → owner_approved → message_sent → conversation → scope_accepted → payment_verified → content_received → proof_generated → client_approved → independently_checked → delivered → followup_due`
-
-Record each transition with timestamp, operator, evidence and next task. Never treat a draft or downloaded file as a paying client. Keep every client workspace separate, private, exportable and editable.
-
-## Weekly evidence-based scorecard
-
-- Relevant businesses individually reviewed
-- Human-approved introductions sent
-- Replies, qualified calls, quotes accepted, **verified paid** projects
-- Revenue received, actual cost/time per job, corrections, missed deadlines, client satisfaction
-- Retention requests and paid repeat work
-
-Track funnel conversion per stage rather than empty outreach volume. Stop offers that cannot be delivered reliably.
-
-## Advertising rule
-
-Draft localized Mexican Spanish and English content, proof-of-work videos, and one-page menu audit samples for MACS to approve. Use direct, permission-based B2B channels. No automatic public posting, mailing, marketplace listings, advertising spend, affiliate enrollment, or false client stories.
-
-## External app boundaries
-
-- ChatGPT private plugin: source and skill, not evidence of production OAuth/action connectivity.
-- Claude local plugin: MCP integration can be tested, but desktop registration requires authorized setup.
-- Do not expose the local MCP HTTP endpoint or private workspace to browsers or customers.
-- Vercel production and previews require team SSO. Separate business website/CRM/payment systems may be linked later through verified authenticated connectors.
+## Proven / Better / New experiment
+Proven: marketplace portfolio + fixed-scope original design packages. Better hypothesis: style-selection gallery reduces client back-and-forth. New experiment: agent-drafted one-page menu audit offered before purchase. Keep the new experiment isolated until 10 stranger tests produce actual replies or purchases. Do not claim evidence of superiority without a comparative test.

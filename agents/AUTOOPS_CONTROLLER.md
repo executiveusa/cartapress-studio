@@ -1,24 +1,27 @@
-# CartaPress — MACS direct B2B client-production controller
+# CartaPress — single controller agent operating contract
 
-**Classification:** USE — shared internal production system, not a standalone public SELL product.
+Assign to the existing **Hermes/Pi or Paperclip controller**, not a new parallel agent hierarchy. Operational goal: first 3 paid menu orders, >=$400 verified gross sales, zero unapproved deliveries and no copyrighted reference artwork reused in deliverables. This is an unproven commercial target, not a promise.
 
-**Commercial outcome:** MACS closes verified direct restaurant clients; CartaPress reduces repeat design, menu validation and export labor while protecting client approval. Revenue belongs to MACS client contracts; do not treat file exports as sales.
+## Cadence and agent roles
 
-## Loop
+**Every 15 minutes:** Read the private AutoOps `status.json`, triage new authorized orders, process deterministic drafts, flag validation failures, and queue factual clarifications. Do not invent or simulate orders.
 
-- **New authorized order:** verify MACS contract scope, the real payer/approval record, customer source menu, locale, destination, rights and printer specs. Open a private client workspace. Idempotent AutoOps queue receives client-approved work only.
-- **Draft:** `cartapress_create_brief → cartapress_validate → cartapress_preview`. Confirm page count and every price. No inferred allergens or prices.
-- **Independent QA:** a distinct reviewer compares source and proof, mobile digital HTML, bilingual meaning when requested, crop/bleed/fonts and print limitations.
-- **Approval:** send only through the verified MACS contact channel; obtain explicit current-fingerprint client approval and operator signature.
-- **Export:** `cartapress_approve → cartapress_export`. Record manifests, checksums, accepted status, delivery receipt and rollback version.
-- **Follow up:** after successful delivery, queue an optional seasonal menu update proposal for owner approval.
+**After intake:** A production agent invokes `cartapress_validate` and `cartapress_preview`. A separately scoped QA agent compares the client's supplied menu to every proposed output, including price precision, description language, allergies, pagination, and contact/print facts. The two agents must not co-sign the same proof without independent source comparison.
 
-## Operator report
+**On explicit client approval:** An authorized operator enters the verifiable approval record in `cartapress_approve` with its exact current hash. Only then call `cartapress_export`. Deliver only through the client-approved marketplace channel, with permission; do not take orders or payments off-platform.
 
-Daily: authorized orders received, draft aging, QA failures, pending approvals, independently verified deliveries and time spent. Weekly: MACS-sourced direct B2B leads, authorized conversations, proposals, paid jobs, actual margin, corrections and repeat requests. Mark absent evidence `unknown`, never zero.
+**Daily at seller-specified hours:** Produce a report with inbound requests, qualified leads, quotes sent with permission, paid orders verified, gross revenue, fee deductions, draft aging, QA pass rate, refunds and operator approvals pending. Unknowns stay `unknown`, not zero.
 
-## Restrictions
+**Weekly:** Run the Proven–Better–New audit against evidence from paying customers; test one change to the acquisition funnel. Park speculative features that delay validated orders. Consider post-delivery menu update retainer only after repeated customer requests.
 
-No Fiverr, Upwork, public self-service selling, auto-buying ad inventory, unsolicited bulk communications, unauthorized menu data, fabricated client work or third-party artwork reuse. No commercial activity from the public Vercel editor; staff access uses team SSO. Do not expose the local MCP as a public HTTP service.
+## Required approvals and restrictions
 
-**Rollback:** Keep previous drafts and exports, invalidate approval if any signed input changes, and revert the affected code PR or restore the prior Vercel deployment if regressions appear.
+- Marketplace communication, seller-profile publication, gig edits, pricing changes, refunds, discounts, payment collection, and purchases: require authenticated channel, actual scope and explicit seller approval unless a narrowly scoped standing policy is later documented.
+- Never fabricate reviews, profile identity, messages from customers, client sign-off, affiliate partnerships, completed printing, or revenue.
+- Secrets in the agent's credential store, never committed, pasted into prompts, or displayed to buyers. Backups and data export stay under owner control.
+- `franlopz/menu-inspiration` is reference-only, not a commercial artwork stockpile.
+- If the controller cannot authenticate a platform or verify an external state, stop at an explicit queued approval/checkpoint; do not silently reroute.
+
+## Proof, exit and rollback
+
+For every order record: source + paid status, item/price checksum, independent QA evidence, current client approval hash, exported file manifest, print specification and delivery receipt. On any mismatch invalidate approval and return to draft; preserve earlier revisions; never overwrite already approved delivery silently.
