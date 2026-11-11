@@ -11,7 +11,7 @@ import {buildSVG,svgPageCount} from '../src/lib/svg.mjs';
 import {buildPDF} from '../src/lib/print.mjs';
 import {buildDigitalHtml} from '../src/lib/digital.mjs';
 import {composeMenu,getPageSize} from '../src/lib/layout.mjs';
-import {approvalFingerprint} from '../src/lib/approval.mjs';
+import {approvalFingerprint,verifyOperatorApprovalSignature} from '../src/lib/approval.mjs';
 const fingerprint=approvalFingerprint;
 const root=path.resolve(process.env.CARTAPRESS_PROJECTS_DIR||'./projects');
 // Private client records: never rely on a permissive host umask or existing file modes.
@@ -25,7 +25,7 @@ const tools=[
  {name:'cartapress_preview',description:'Generate editable proof SVG pages, digital HTML and source fingerprint before external approval; not a final deliverable.',inputSchema:{type:'object',properties:{projectId:textField('Local project ID')},required:['projectId'],additionalProperties:false}},
  {name:'cartapress_validate',description:'Read a draft, check required prices and produce actionable errors before design is approved.',inputSchema:{type:'object',properties:{projectId:textField('Local project ID')},required:['projectId'],additionalProperties:false}},
  {name:'cartapress_update_menu',description:'Replace draft menu with client-confirmed content, invalidating any previous approval.',inputSchema:{type:'object',properties:{projectId:textField('Local project ID'),menuText:textField('Corrected, client-confirmed menu text')},required:['projectId','menuText'],additionalProperties:false}},
- {name:'cartapress_approve',description:'Record explicit client approval of EVERY price and the final visual proof. Only call after external approval is documented.',inputSchema:{type:'object',properties:{projectId:{type:'string'},clientApprovalRecord:{type:'string',description:'An independently verifiable client approval record, not agent-generated'},previewHash:{type:'string',description:'The exact SHA256 fingerprint returned by cartapress_preview'},approved:{type:'boolean',description:'Must be true and supported by client proof'}},required:['projectId','clientApprovalRecord','previewHash','approved'],additionalProperties:false}},
+ {name:'cartapress_approve',description:'Record explicit client approval of EVERY price and the final visual proof. Only call after external approval is documented.',inputSchema:{type:'object',properties:{projectId:{type:'string'},clientApprovalRecord:{type:'string',description:'Independently verifiable original client approval record, not agent-generated'},approvalSignature:{type:'string',description:'Operator-signed HMAC SHA256 receipt from a separate account holding CARTAPRESS_APPROVAL_KEY; the agent cannot generate it'},previewHash:{type:'string',description:'The exact SHA256 fingerprint returned by cartapress_preview'},approved:{type:'boolean',description:'Must be true and supported by client proof'}},required:['projectId','clientApprovalRecord','approvalSignature','previewHash','approved'],additionalProperties:false}},
  {name:'cartapress_export',description:'Export local SVG, 3mm-bleed RGB PDF proof, editable menu JSON, and manifest. Only approved briefs may export.',inputSchema:{type:'object',properties:{projectId:{type:'string'}},required:['projectId'],additionalProperties:false}},
  {name:'cartapress_print_routes',description:'Return verified print vendor and affiliate-application links, no active commission claim.',inputSchema:{type:'object',properties:{},additionalProperties:false}}
 ];
@@ -50,7 +50,8 @@ server.setRequestHandler(CallToolRequestSchema,async(req)=>{
    const doc=await read(args.projectId);const v=validateBrief(doc);if(!v.ok)throw Error(v.issues.join(' '));
    if(doc.status!=='proof'||!doc.previewHash||doc.previewHash!==fingerprint(doc)||args.previewHash!==doc.previewHash)throw Error('An exact, current previewHash is required before client approval.');
    if(args.approved!==true||!String(args.clientApprovalRecord||'').trim()||String(args.clientApprovalRecord).length<8)throw Error('Actual client proof and explicit approval are required');
-   doc.approval={record:args.clientApprovalRecord,approvedAt:new Date().toISOString(),pricesConfirmed:true,visualApproved:true,previewHash:doc.previewHash};doc.status='approved';doc.updatedAt=new Date().toISOString();await save(doc.id,doc);return reply({projectId:doc.id,status:doc.status});
+   if(!verifyOperatorApprovalSignature(process.env.CARTAPRESS_APPROVAL_KEY,doc.id,doc.previewHash,args.clientApprovalRecord,args.approvalSignature))throw Error('Valid operator-signed approval evidence is required; agent-supplied text is insufficient.');
+   doc.approval={record:args.clientApprovalRecord,approvedAt:new Date().toISOString(),pricesConfirmed:true,visualApproved:true,previewHash:doc.previewHash,approvalSignatureVerified:true};doc.status='approved';doc.updatedAt=new Date().toISOString();await save(doc.id,doc);return reply({projectId:doc.id,status:doc.status});
   }
   if(name==='cartapress_export'){
    const doc=await read(args.projectId);if(doc.status!=='approved'||!doc.approval?.pricesConfirmed||doc.approval.previewHash!==fingerprint(doc))throw Error('Client approval gate is not satisfied for this exact revision');

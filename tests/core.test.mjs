@@ -70,3 +70,26 @@ test('preserves explicit currency symbols in unseparated source text',()=>{
  assert.deepEqual(rows.map(r=>r.price),['€12','MX$39','£4,50','3']);
  assert.deepEqual(rows.map(r=>r.title),['Coffee','Taco','Juice','Tea']);
 });
+
+import {makeOperatorApprovalSignature,verifyOperatorApprovalSignature} from '../src/lib/approval.mjs';
+import {pdfPayload} from '../src/lib/pdf-payload.mjs';
+test('PDF request excludes private contact and approval information',()=>{
+ const payload=pdfPayload({restaurant:'Cafe',menuText:'Cakes\nPie | sugar | 4',contactEmail:'private@example.com',approval:{record:'secret'},other:'private',printSize:'A4'});
+ assert.equal(payload.contactEmail,undefined);
+ assert.equal(payload.approval,undefined);
+ assert.equal(payload.other,undefined);
+ assert.equal(payload.restaurant,'Cafe');
+ assert.equal(payload.printSize,'A4');
+});
+test('MCP cannot accept fabricated approval without independent operator receipt',()=>{
+ const key='0123456789abcdef0123456789abcdef';
+ const id='cafe-12345';
+ const hash='a'.repeat(64);
+ const record='Written client approval evidence at record #12';
+ const valid=makeOperatorApprovalSignature(key,id,hash,record);
+ assert.ok(verifyOperatorApprovalSignature(key,id,hash,record,valid));
+ assert.equal(verifyOperatorApprovalSignature(key,id,hash,record,'b'.repeat(64)),false);
+ assert.equal(verifyOperatorApprovalSignature(key,id,'b'.repeat(64),record,valid),false);
+ assert.equal(verifyOperatorApprovalSignature(key,id,hash,'client approved',valid),false);
+ assert.equal(verifyOperatorApprovalSignature('',id,hash,record,valid),false);
+});
