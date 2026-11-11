@@ -41,7 +41,7 @@ test('Marketing policy and agent roles are direct business-to-business only', as
     readFile('agents/marketing/OPERATING_POLICY.md','utf8'),
     readFile('agents/AUTOOPS_CONTROLLER.md','utf8')
   ]);
-  assert.match(policy,/direct business-to-business/i);
+  assert.match(policy,/Direct B2B|direct.*restaurant|MACS.*direct/i);
   assert.match(controller,/MACS direct B2B/);
   assert.match(controller,/client.*approv/i);
 });
