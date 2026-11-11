@@ -2,21 +2,28 @@ import { json } from '@sveltejs/kit';
 
 export function GET() {
   return json({
-    name: 'CartaPress Studio',
-    version: '0.2.0',
+    product: 'CartaPress / MACS',
+    operatingMode: 'private_internal_client_production',
+    access: 'Vercel team authentication required',
     locales: ['en', 'es-MX'],
-    paths: { en: '/', 'es-MX': '/es' },
-    service: 'Original restaurant menu design for print and digital',
-    mode: 'self_service_demo',
-    primaryAction: { label: 'Create a menu preview', path: '/#studio' },
-    machineReadable: {
-      catalog: { method: 'GET', path: '/api/catalog', auth: 'none', attribution: 'reference_only' },
-      pdfProof: { method: 'POST', path: '/api/export/pdf', auth: 'none', input: 'public demo brief (no contact details)', output: 'application/pdf', maxBodyBytes: 100000 }
+    routes: { overview: ['/', '/es'], staffStudio: ['/studio', '/es/studio'] },
+    service: 'Design tools supporting MACS direct business-to-business client work',
+    publicSales: false,
+    marketplaceSales: false,
+    publicCheckout: false,
+    directB2B: true,
+    APIs: {
+      catalog: { path: '/api/catalog', method: 'GET', purpose: 'attributed style references' },
+      pdfProof: { path: '/api/export/pdf', method: 'POST', contentType: 'application/pdf', purpose: 'draft proof only; not CMYK preflight' }
     },
-    formats: ['SVG', 'PNG', 'PDF proof (RGB)', 'HTML', 'JSON', 'ZIP'],
-    localAgent: { protocol: 'MCP over stdio', entry: 'mcp/server.mjs', transport: 'local_only', publicRemoteEndpoint: false },
-    orderIntake: { enabled: false, paymentConnected: false, marketplaceOrdersConnected: false },
-    approvals: 'MCP production export requires valid operator approval; browser exports are previews',
-    caution: 'Do not submit personal customer data to public demo APIs. Price, allergen and print preflight verification remains required.'
-  }, { headers: { 'Cache-Control': 'public, max-age=300' } });
+    agent: { protocol: 'local MCP over stdio', entry: 'mcp/server.mjs', role: 'approved client briefs, validation and approval-gated final export', remotePublicEndpoint: false },
+    integrations: {
+      chatGPT: 'private plugin; manual setup and runtime authorization still required',
+      claude: 'local plugin with tested MCP handshake; desktop installation not verified',
+      clientCRM: 'not connected',
+      payments: 'managed outside this tool; not connected',
+      campaignPublishing: 'drafts only'
+    },
+    safeguards: ['no unauthorized client uploads', 'verify client prices', 'require client approvals before final delivery', 'operator review for outbound communication']
+  }, { headers: { 'Cache-Control': 'private, no-store', 'X-Robots-Tag': 'noindex, nofollow, noarchive' } });
 }
