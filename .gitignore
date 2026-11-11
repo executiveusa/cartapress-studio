@@ -1,0 +1,12 @@
+node_modules/
+.svelte-kit/
+.vercel/
+build/
+.env
+.env.*
+!.env.example
+.DS_Store
+projects/
+
+private-operations/
+ops/*.lock

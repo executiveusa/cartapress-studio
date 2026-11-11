@@ -1,0 +1,11 @@
+{
+  "id": "03-cafe",
+  "restaurant": "Little Fig Café",
+  "styleId": "botanical",
+  "currency": "$",
+  "tagline": "A GOOD DAY STARTS HERE",
+  "subtitle": "BRUNCH & COFFEE",
+  "footer": "Concept design · Fictional restaurant · Illustrative prices",
+  "menuText": "THE MORNING TABLE\nRicotta Toast | fresh figs, local honey | 14\nGarden Omelette | asparagus, spinach, chèvre | 16\nBreakfast Sandwich | egg, cheddar, brioche | 13\nChia & Coconut | seasonal berries, toasted seeds | 11\n\nCOFFEE BAR\nFlat White | double ristretto, silky milk | 5\nMatcha Latte | ceremonial green tea, oat milk | 6\nCold Brew | slow steeped, lightly sweetened | 5\n\nBAKERY\nAlmond Croissant | baked daily | 6\nLemon Olive Oil Cake | vanilla glaze | 7",
+  "portfolioSample": true
+}

@@ -1,0 +1,6 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cartapress-studio",
+  "version": "0.1.0",
+  "description": "Create original restaurant menu concepts, validate item details, prepare client-approved proof packs, and draft compliant marketing for CartaPress Studio."
+}

@@ -1,0 +1,30 @@
+name: CartaPress checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install exact dependencies
+        run: npm install --no-audit --no-fund
+      - name: Unit and data tests
+        run: npm test
+      - name: AutoOps worker smoke checks
+        run: npm run ops:smoke
+      - name: Svelte type and compile checks
+        run: npm run check
+      - name: Production bundle
+        run: npm run build
+      - name: Verify private secrets are absent
+        run: |
+          test ! -e .env
+          test ! -d projects

@@ -1,0 +1,11 @@
+{
+  "id": "02-bistro",
+  "restaurant": "Oak & Ember",
+  "styleId": "editorial",
+  "currency": "$",
+  "tagline": "NEIGHBORHOOD SUPPER CLUB",
+  "subtitle": "DINNER · FALL 2026",
+  "footer": "Concept design · Fictional restaurant · Illustrative prices",
+  "menuText": "TO BEGIN\nBurrata | heirloom tomato, toasted sourdough | 17\nCharred Broccolini | toasted almond, anchovy butter | 13\nSteak Tartare | dijon, cornichon, grilled brioche | 21\n\nTHE MAIN EVENT\nRoast Chicken | preserved lemon, crispy potatoes | 29\nSeared Trout | charred fennel, brown butter | 32\nWild Mushroom Pappardelle | parmesan, sage, cream | 27\nRibeye for Two | peppercorn jus, house fries | 86\n\nFINISH SWEET\nPear Frangipane | honey ice cream | 13\nDark Chocolate Pot de Crème | whipped crème fraîche | 12",
+  "portfolioSample": true
+}

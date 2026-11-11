@@ -1,0 +1,11 @@
+{
+  "id": "01-cantina",
+  "restaurant": "Mar y Maíz",
+  "styleId": "cantina",
+  "currency": "MX$",
+  "tagline": "COCINA DE COSTA · HECHA CON AMOR",
+  "subtitle": "MENÚ DE LA CASA",
+  "footer": "Diseño conceptual · Restaurante ficticio · Precios ilustrativos",
+  "menuText": "BOTANAS\nGuacamole de la Casa | totopos crujientes, cilantro y limón | 120\nEsquites Dorados | elote tatemado, queso fresco y chile | 85\nTostada de Atún | aguacate, pepino y cebolla morada | 165\n\nTACOS\nTaco de Pescado | pescado a la plancha, repollo, salsa cremosa | 68\nCochinita al Pibil | achiote, cebolla morada, habanero | 65\nChampiñones al Ajillo | hongos, perejil, crema de chile | 58\n\nPOSTRES\nFlan de Café | caramelo, vainilla de Veracruz | 95\nPastel de Tres Leches | crema fresca, canela | 105",
+  "portfolioSample": true
+}
