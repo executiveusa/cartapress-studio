@@ -1,0 +1,44 @@
+name: Unpack CartaPress reviewed source
+on:
+  push:
+    branches:
+      - feat/cartapress-studio-launch
+    paths:
+      - bootstrap/**
+      - .github/workflows/bootstrap.yml
+permissions:
+  contents: write
+jobs:
+  unpack:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify release integrity and unpack
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "6f0168a271b9e30b0087a05eb3c60bb94127bf951e4065ce2d34f582c4bd9a1d  bootstrap/cartapress-release.zip" | sha256sum -c -
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          dest=Path.cwd()
+          with zipfile.ZipFile('bootstrap/cartapress-release.zip') as z:
+              names=z.namelist()
+              assert len(names)==77, 'Unexpected number of files'
+              for n in names:
+                  p=Path(n)
+                  assert not p.is_absolute() and not any(x in ('..','.git','node_modules','projects') for x in p.parts), n
+                  assert not n.startswith('bootstrap/'), n
+                  assert n != '.env', n
+              z.extractall(dest)
+          print('Unpacked',len(names),'source and asset files')
+          PY
+          rm -rf bootstrap
+          git add -A
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "feat: expand CartaPress application, MCP, plugins and marketing agent"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
