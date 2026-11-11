@@ -1,4 +1,4 @@
 <script>
-  import CartaLanding from '$lib/CartaLanding.svelte';
+  import InternalHome from '$lib/InternalHome.svelte';
 </script>
-<CartaLanding lang="es" />
+<InternalHome lang="es" />
