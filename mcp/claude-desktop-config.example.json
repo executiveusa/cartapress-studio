@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cartapress-studio": {
+      "command": "node",
+      "args": ["/ABSOLUTE/PATH/TO/cartapress-studio/mcp/server.mjs"],
+      "env": {"CARTAPRESS_PROJECTS_DIR": "/ABSOLUTE/PRIVATE/PROJECTS/DIRECTORY"}
+    }
+  }
+}

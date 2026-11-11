@@ -1,0 +1,322 @@
+{
+  "product": "CartaPress Studio",
+  "version": "0.1.0-source-candidate",
+  "built_at_utc": "2026-11-11T06:23:31.850513+00:00",
+  "validation": {
+    "node_unit_tests": "13/13 PASS",
+    "standalone_browser_smoke": "desktop 1320px PASS, mobile 390px PASS",
+    "github_push": "NOT DONE - Composio GitHub HTTP 401 Bad credentials",
+    "sveltekit_install_and_build": "BLOCKED - dependencies cannot download from local runtime",
+    "server_pdf_zip_qr": "UNVERIFIED",
+    "physical_printer_preflight": "NOT DONE",
+    "fiverr_upwork_publications": "NOT DONE"
+  },
+  "rights": "190 original repo images appear as attributed remote-hosted style references only; originals not redistributed",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "2d400808a357b54a9c20121fa36838c33e5b116d48218ccd055bdfee980ed5ca",
+      "bytes": 278
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "0f62ea332f5fb6e90cf72bd2848584e367183ef25dfff9b6e133d65fd758b1f0",
+      "bytes": 685
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "a5c1bb63212f0d6544974a7a57722dbaf56c289d71b23a43b244d7f0f3d495a7",
+      "bytes": 89
+    },
+    {
+      "path": "README.md",
+      "sha256": "1edfa8052126c154f149ff5cbbd26761937f2a7c968b11111e1945c63ff3cc94",
+      "bytes": 5602
+    },
+    {
+      "path": "agents/SYSTEM_PROMPT.md",
+      "sha256": "b959a081c7b566da361b13e40fe1445ea0096ed10fb4998778726c453c193c33",
+      "bytes": 2512
+    },
+    {
+      "path": "demo-60.png",
+      "sha256": "b8a210fb15f3798ec708fd80d49f91962bdb5b2567be00977a21631b06f2aa43",
+      "bytes": 192885
+    },
+    {
+      "path": "demo-60.svg",
+      "sha256": "22e4b760c47e62ff676837cec68fbebd80e9aaa53cc597ac6f4b232e3880cf00",
+      "bytes": 11710
+    },
+    {
+      "path": "demo-digital-desktop.png",
+      "sha256": "cf6f4b59107699527d3178b6e95474f8c668e0bab3fab136ba2f576a0b6120a1",
+      "bytes": 110379
+    },
+    {
+      "path": "demo-digital-mobile.png",
+      "sha256": "d0c514c8b3a1160d31a7dbd2e7c2979780b0e12c60e4f1dbdd4cc20305c344f9",
+      "bytes": 78874
+    },
+    {
+      "path": "demo-menu.html",
+      "sha256": "53ad7baf20140e7888711372771779e1d0798b7dc39d8557886d6abc5d2a01a1",
+      "bytes": 6531
+    },
+    {
+      "path": "demo-menu.png",
+      "sha256": "1106c973f51290204f5956b28ef902abe7135baafe160ec17474d3498054d779",
+      "bytes": 76951
+    },
+    {
+      "path": "demo-menu.svg",
+      "sha256": "24145fc34ab211dfd2f3fb31ee5e7aaf25e74f7344d6aae833ce811eed994540",
+      "bytes": 4706
+    },
+    {
+      "path": "docs/COMPETITOR_BENCHMARK.md",
+      "sha256": "08b14e330d7c6b0f4464feb1e0375ed08dcc8e5586907610c1c09c0c1f54d106",
+      "bytes": 3133
+    },
+    {
+      "path": "docs/GO_TO_MARKET.md",
+      "sha256": "a5386e7060f8f07e71c491273d736246f749e4557377997091a11ad717c7301b",
+      "bytes": 16582
+    },
+    {
+      "path": "docs/MARKETPLACE_GIGS.md",
+      "sha256": "06f4b91dd5d87023622c8293793f355efb65ad473039f8c4744a39a1910a66d5",
+      "bytes": 7598
+    },
+    {
+      "path": "docs/PRINT_PARTNERS.md",
+      "sha256": "c0f6cf4fd54955c97d28d87c47ecd10fc7c624f77b21e652506c835b3059ffd3",
+      "bytes": 1599
+    },
+    {
+      "path": "docs/RELEASE_GATES.md",
+      "sha256": "c5d17c94be43d77df874160c768b9cc9f20f23c70b65a0e34a06591827efa3b4",
+      "bytes": 2964
+    },
+    {
+      "path": "docs/TECHNICAL_REVIEW.md",
+      "sha256": "995013c8459b91c33d84caa2d973eb11e326bf7d5bd237c74a4f26e1e02d4e7e",
+      "bytes": 3010
+    },
+    {
+      "path": "icm/WORKFLOW.md",
+      "sha256": "6c465ba412f206c4839a43c42f91954012e54dc349bb64bc4ffdfdcf8218882b",
+      "bytes": 1645
+    },
+    {
+      "path": "marketplace/gig-assets/01-cantina-concept.pdf",
+      "sha256": "947a1b9abf5603a5b60e11ae21f3ec93a4086929476f5e2fd948ed36f1ac1205",
+      "bytes": 27651
+    },
+    {
+      "path": "marketplace/gig-assets/02-bistro-concept.pdf",
+      "sha256": "ea7f5a19b4fc14796c3efe1a88373ebe40e3426404ccaa85f48aba26dac67e82",
+      "bytes": 28543
+    },
+    {
+      "path": "marketplace/gig-assets/03-cafe-concept.pdf",
+      "sha256": "a0c6c8046a5b78adf6767b013bfe620ab06412a03c14d345a3322659f128b2ed",
+      "bytes": 27927
+    },
+    {
+      "path": "marketplace/gig-assets/fiverr-01-main.jpg",
+      "sha256": "fdddcac773266c7a69aa41d0b05af1e9039fbc2876b0cc7e6a8f1c5f791cdcd1",
+      "bytes": 187313
+    },
+    {
+      "path": "marketplace/gig-assets/fiverr-02-styles.jpg",
+      "sha256": "92efca131a095d9a1a2099ea25ef74de00031258750dab12b47d37b78480726e",
+      "bytes": 161252
+    },
+    {
+      "path": "marketplace/gig-assets/fiverr-03-deliverables.jpg",
+      "sha256": "74e4dc9a970aa950c8ae5ba12d3a394ccb6eee4487152f08b1408d4b5ffe51b4",
+      "bytes": 145140
+    },
+    {
+      "path": "marketplace/gig-assets/upwork-cover-1000x750.jpg",
+      "sha256": "6f62b5f2eb717f0c17f1da7611ba68955d8ce9046ccc0646d9dab989c093fbe7",
+      "bytes": 161262
+    },
+    {
+      "path": "marketplace/samples/01-cantina-page-1.png",
+      "sha256": "586622aed45b36c7274d137877d2acb0bc1e87a2e8f97f79990cb50dde1eb295",
+      "bytes": 125754
+    },
+    {
+      "path": "marketplace/samples/01-cantina-page-1.svg",
+      "sha256": "f317fc3925c1bd98a0f68b382aa241ae947eab7978555d077afd664078b75808",
+      "bytes": 4826
+    },
+    {
+      "path": "marketplace/samples/01-cantina.html",
+      "sha256": "e7ed1a73ca927aa528a9e06b3928fa4dd39547dde062f3609986ba985ae91cff",
+      "bytes": 6619
+    },
+    {
+      "path": "marketplace/samples/01-cantina.json",
+      "sha256": "595042662e63214df3f1f6224462f70b85565948072f0adcbd5060ca79ebe72b",
+      "bytes": 826
+    },
+    {
+      "path": "marketplace/samples/02-bistro-page-1.png",
+      "sha256": "945c27313f196e95bad203168915347cdbbc1c93c25bb82a11b3058caa55e01c",
+      "bytes": 126557
+    },
+    {
+      "path": "marketplace/samples/02-bistro-page-1.svg",
+      "sha256": "412483ee2c287e27bf94731d1809275d0a5b7eb99f106dccda99f1d22e834f20",
+      "bytes": 5139
+    },
+    {
+      "path": "marketplace/samples/02-bistro.html",
+      "sha256": "028d756d0dd0984187854299d08439fd49325d8e14e6c864297f6bb474c4206f",
+      "bytes": 6870
+    },
+    {
+      "path": "marketplace/samples/02-bistro.json",
+      "sha256": "e7156325c18cadff00738988c50cd69fd59bdc5a657a43144438c68040966c7a",
+      "bytes": 819
+    },
+    {
+      "path": "marketplace/samples/03-cafe-page-1.png",
+      "sha256": "de2b897e9e66a1c2ef2f016014dddb4f01c94dc1e3037b769535bdb108daa673",
+      "bytes": 119595
+    },
+    {
+      "path": "marketplace/samples/03-cafe-page-1.svg",
+      "sha256": "aff1630dde90aed2787b1bd9356ec23bdda1ab1cccd33f521876b652b97992de",
+      "bytes": 5091
+    },
+    {
+      "path": "marketplace/samples/03-cafe.html",
+      "sha256": "3bf9a793238590fa046980a06c3313c14bbc6b78d3d752bb97b495a04b106e29",
+      "bytes": 6790
+    },
+    {
+      "path": "marketplace/samples/03-cafe.json",
+      "sha256": "efa094c7bcd5669c517249c65b4a0a0e124c1c931a72162bdb83769a3bd97585",
+      "bytes": 764
+    },
+    {
+      "path": "mcp/claude-desktop-config.example.json",
+      "sha256": "8a8c713de24fcb5e7906759697ed51a97410d31d269ce9c30e3066634175d5a0",
+      "bytes": 235
+    },
+    {
+      "path": "mcp/server.mjs",
+      "sha256": "b15611e31273cd3e896dcd295a5410c3f00870e358d042630a4be0a9cfe052bd",
+      "bytes": 10453
+    },
+    {
+      "path": "package.json",
+      "sha256": "021cfb44aece1b78ede95f6e87366c941cd00b18c50800e89ebf1033c52656db",
+      "bytes": 927
+    },
+    {
+      "path": "scripts/build_marketplace_assets.py",
+      "sha256": "4ccccfdb87cbdc95c48311b675d0ded21adbd2f273ce3fa5ff8306a8973f15ca",
+      "bytes": 4743
+    },
+    {
+      "path": "scripts/generate-demos.mjs",
+      "sha256": "173de39502ab230c2d6b6a6afb90df6ae44ee4fbc5bb2fce6c97c46f34d8f955",
+      "bytes": 2909
+    },
+    {
+      "path": "scripts/sync-catalog.mjs",
+      "sha256": "a7b6642320c1f994cba68925cb9e2b064ae88803ead6d94b0157fe9c28c85c53",
+      "bytes": 596
+    },
+    {
+      "path": "src/app.html",
+      "sha256": "1d2bb21a854c82aa2ab40d136608dbac3c9e1be93348de360b5204da03d74789",
+      "bytes": 624
+    },
+    {
+      "path": "src/lib/approval.mjs",
+      "sha256": "24949d326561f507bdd48e72beba3f7330056ce16e921c0f8687146869c1dd7d",
+      "bytes": 614
+    },
+    {
+      "path": "src/lib/catalog.mjs",
+      "sha256": "a2adf71c5e51057b23bd0a06b50f07bd698f6fd3c1752355d54b598b1548c17b",
+      "bytes": 1232
+    },
+    {
+      "path": "src/lib/digital.mjs",
+      "sha256": "c290559a05b02d51351b1668774d29d254941d2b4a8062918d780eaa7afefc2a",
+      "bytes": 6266
+    },
+    {
+      "path": "src/lib/layout.mjs",
+      "sha256": "beb60a5fbc17bb3fcd9c79a33238e77bd9fda0bc72791d13c28074f44a002978",
+      "bytes": 3720
+    },
+    {
+      "path": "src/lib/menu.mjs",
+      "sha256": "e2064bde973f56e30a5198fcd2fc6036b48d5fb472fede63115fd8627f743355",
+      "bytes": 6534
+    },
+    {
+      "path": "src/lib/print.mjs",
+      "sha256": "e383d2db50ce728d383842ccda344d65d60116a55b573335a5cbec0226b75b13",
+      "bytes": 4579
+    },
+    {
+      "path": "src/lib/svg.mjs",
+      "sha256": "2554d290aaba3c813e927a34a7cc5e1fef4ae2cc53ca3173b85b0708dff56210",
+      "bytes": 3643
+    },
+    {
+      "path": "src/routes/+page.svelte",
+      "sha256": "10aeaeb7ce74c8f8409cb809954edc2d6e2c07f50abafba19fe2a2423aa5e079",
+      "bytes": 44967
+    },
+    {
+      "path": "src/routes/api/catalog/+server.ts",
+      "sha256": "a8951f3341d2cdef090bfa98362bb565c85748d5b72bda2ec19cf7bb4f9d90d1",
+      "bytes": 1135
+    },
+    {
+      "path": "src/routes/api/export/pdf/+server.ts",
+      "sha256": "336069cff4622d921bc5a8560b55199229d11675e2094a389946a25a99e37509",
+      "bytes": 697
+    },
+    {
+      "path": "static/robots.txt",
+      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95",
+      "bytes": 23
+    },
+    {
+      "path": "svelte.config.js",
+      "sha256": "9cc83e8bd1bffdacc2342209258931403ffef70f85d39b92d780e1b412680e75",
+      "bytes": 217
+    },
+    {
+      "path": "tests/browser_smoke.py",
+      "sha256": "3dd3299997ea2f0c1398102eccf7565279c3a26ee961534ede3b0c5389efa5c3",
+      "bytes": 1763
+    },
+    {
+      "path": "tests/core.test.mjs",
+      "sha256": "ea29375e2fe6b0a3d4e6c0821cda86e502e3438cb8613414f5c9ba1667a6ac0d",
+      "bytes": 5907
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "20a17a9b7e3efe6a8135571094c98819aaf71fafc56ac95b1418f095600798e5",
+      "bytes": 346
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "1e849563c7b7403a43680ae811628bef59bf4b008af9f2f76d8968c5101ddf5f",
+      "bytes": 142
+    }
+  ]
+}

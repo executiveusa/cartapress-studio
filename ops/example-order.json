@@ -1,0 +1,10 @@
+{
+  "orderId": "demo-001",
+  "channel": "demo",
+  "sourceLink": "https://example.org/example-menu",
+  "restaurant": "Example Cafe",
+  "styleId": "editorial",
+  "printSize": "Letter",
+  "currency": "$",
+  "menuText": "COFFEE\nEspresso | Double shot | 3.50\nCappuccino | Espresso and steamed milk | 4.50\nFOOD\nAvocado Toast | Chili flakes and herbs | 10.00"
+}

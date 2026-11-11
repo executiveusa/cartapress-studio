@@ -1,0 +1,21 @@
+[Unit]
+Description=CartaPress draft-proof worker (no external sends)
+After=network-online.target
+
+[Service]
+Type=simple
+User=cartapress
+WorkingDirectory=/opt/cartapress-studio
+Environment=CARTAPRESS_OPS_DIR=/var/lib/cartapress/private-operations
+Environment=CARTAPRESS_POLL_SECONDS=900
+ExecStart=/usr/bin/node ops/runner.mjs --loop
+Restart=on-failure
+RestartSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/cartapress
+
+[Install]
+WantedBy=multi-user.target
