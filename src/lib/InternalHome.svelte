@@ -19,7 +19,7 @@
       <div class="copy">
         <span class="eyebrow">{t('MACS · CLIENT PRODUCTION','MACS · PRODUCCIÓN PARA CLIENTES')}</span>
         <h1 id="heading">{t('Better menus.','Menús que')}<br/><em>{t('Less busywork.','sí se antojan.')}</em></h1>
-        <p>{t('A private studio for turning a client’s real dishes and prices into menu proofs, editable files and digital versions. No marketplace listings, public checkout or client data shared through a storefront.','Un estudio privado para convertir los platillos y precios de tus clientes en pruebas de diseño, archivos editables y menús digitales. Sin tienda pública ni ventas por plataformas.')}</p>
+        <p>{t('Turn a client’s verified dishes and prices into an original menu proof, editable files and a mobile menu. The workflow stays under MACS control.','Convierte los platillos y precios verificados de cada cliente en un menú original, archivos editables y una versión para celular. MACS conserva el control del proceso.')}</p>
         <a class="primary" href={es?'/es/studio':'/studio'}>{t('Open the menu studio','Abrir el estudio de menús')} <span aria-hidden="true">↗</span></a>
         <div class="owner-note">{t('Authorized MACS team use · Client sign-off required before final delivery','Uso exclusivo del equipo MACS · La entrega final requiere aprobación del cliente')}</div>
       </div>
