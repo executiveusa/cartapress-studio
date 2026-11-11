@@ -1,4 +1,4 @@
-/** Spanish (Mexico) copy — original English keys are the stable fallback. */
+/** Spanish (Mexico) editorial UI — English keys are the fallback. */
 export const esMX = {
   "A SMALL STUDIO FOR THE BIGGEST PART OF YOUR TABLE": "DISEÑO DE MENÚS QUE SÍ SE ANTOJAN",
   "MENU DESIGN · PRINT · DIGITAL": "DISEÑO DE MENÚS · IMPRESIÓN · DIGITAL",
@@ -123,6 +123,38 @@ export const esMX = {
   "Great taste<br/>": "El buen gusto<br/>",
   "Make the": "Haz que",
   "first impression": "tu menú se vea",
-  "appetizing": "tan rico como tu comida"
+  "appetizing": "tan rico como tu comida",
+  "All directions": "Todos los estilos",
+  "Latin & Mexican": "Mexicano y latino",
+  "Retro typography": "Tipografía retro",
+  "Photo led": "Con fotografías",
+  "Quiet luxury": "Elegante y sobrio",
+  "Wall & TV boards": "Pizarras y pantallas",
+  "Canva inspiration": "Plantillas de referencia",
+  "The Editorial": "Editorial",
+  "Understated, luxurious": "Elegante y discreto",
+  "The Modernist": "Moderno",
+  "Sharp, clean, contemporary": "Claro y contemporáneo",
+  "The Cantina": "Cantina",
+  "Vibrant, spirited, bold": "Alegre, con mucha personalidad",
+  "The Botanical": "Botánico",
+  "Fresh, earthy, seasonal": "Natural y fresco",
+  "After Dark": "Nocturno",
+  "Cocktails & late-night rooms": "Para bares y cocteles",
+  "United States": "Estados Unidos",
+  "Mexico": "México",
+  "Canada": "Canadá",
+  "Other": "Otro",
+  "Studio": "Estudio",
+  "Your restaurant": "Tu restaurante",
+  "Something worth coming back for": "Una frase sobre tu restaurante",
+  "Lunch · Dinner · Cocktails": "Comida · Cena · Bebidas",
+  "Main navigation": "Navegación principal",
+  "Menu design inspiration carousel": "Galería de estilos de menú",
+  "Ready for draft export. Final print proof is still required.": "Listo para descargar una propuesta. Revisa los datos antes de imprimir.",
+  "FIRST PAGE": "PRIMERA PÁGINA",
+  "Save style": "Guardar estilo",
+  "Select": "Elegir",
+  "Select design inspiration": "Elegir diseño de referencia"
 };
 export function translate(key,locale='en'){return locale==='es'?(esMX[key] ?? key):key;}
