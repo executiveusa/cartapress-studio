@@ -116,7 +116,6 @@
   /* P1 mobile ergonomics only: no changes to approved hero, logo or desktop layout. */
   .mobile-preview-jump,.mobile-edit-back{display:none}
   @media(max-width:760px){
-    .site-shell{overflow-x:clip}
     .studio-layout,.form-col,.preview-col,.paper-stage{min-width:0}
     .form-col input,.form-col textarea,.form-col select{font-size:16px}
     .mobile-preview-jump{position:sticky;top:0;z-index:5;display:block;margin:-20px -20px 18px;padding:8px 20px;background:#f5f3e9;border-bottom:1px solid #d6d9ce}
