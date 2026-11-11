@@ -1,4 +1,40 @@
-# CartaPress Studio
+# CartaPress — MACS internal B2B menu-production studio
+
+**Current product direction (2026-11-11): INTERNAL USE ONLY.** This SvelteKit app is a private, bilingual English/Mexican Spanish production tool used by MACS staff and approved agents to service direct B2B restaurant clients.
+
+- Vercel project requires team authentication for **production and preview**.
+- Internal home: `/` / `/es` · Staff workbench: `/studio` / `/es/studio`.
+- Machine-readable internal capabilities: `/api/capabilities`.
+- Local MCP is stdio-only; private client projects require approval fingerprints and operator review for final export.
+- Browser exports are editable draft/proof files; printed deliverables still need printer approval.
+- No public marketplace listings, price checkout, client self-sign-up, public remote agent endpoint or bulk autonomous outreach.
+- Direct MACS B2B funnel: [docs/GO_TO_MARKET_V2.md](docs/GO_TO_MARKET_V2.md). Agent policy: [agents/marketing/OPERATING_POLICY.md](agents/marketing/OPERATING_POLICY.md).
+- Historical launch plans in this repository were exploratory and **superseded**; they are not active operating instructions. Do not store any real client files in GitHub.
+
+## Development
+```sh
+npm install
+npm test
+npm run check
+npm run build
+npm run dev
+```
+
+## Local MCP
+```sh
+npm run mcp
+```
+Configure the example in `mcp/claude-desktop-config.example.json` for an authorized operator. Never expose this stdio process on a public network without a reviewed authentication layer.
+
+## Provenance and limits
+All menu gallery artwork is third-party **reference only**, not licensed for reuse in deliverables. The original generated table hero is in `static/images/menu-table-hero.webp`. Current PDF remains RGB proof, not certified CMYK production. Client approval is not fabricated. The ChatGPT plugin is private, while Claude's local plugin can be installed with a verified MCP handshake in CI, not yet verified on an operator desktop.
+
+---
+
+<details>
+<summary>Historical product notes (superseded by internal MACS direction)</summary>
+
+## Original CartaPress Studio plan
 
 **An original SvelteKit menu-design app and agent-ready service operation.**
 
@@ -64,3 +100,5 @@ Run `npm run ops:smoke` for private queue checks. The unit suite now contains **
 ## GitHub publishing status
 
 As of 2026-11-11 the available GitHub integration can modify existing accessible repos but cannot create a repository. The separate Composio GitHub OAuth account returned HTTP 401 on create. Consequently, the source is delivered as a Git-ready ZIP, not as a live GitHub repository or merged PR. Do not represent this archive as deployed or the service as running unattended.
+
+</details>
