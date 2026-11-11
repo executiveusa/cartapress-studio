@@ -1,14 +1,26 @@
 ---
 name: cartapress
-description: Help independent restaurants select an attributed menu style reference, produce an original draft, validate item text and prices, and export approved source and proof files through CartaPress Studio.
+description: MACS-only private B2B client menu design and approval-gated production with CartaPress local MCP.
 ---
+# CartaPress — internal MACS skill (EN / ES-MX)
 
-# CartaPress Studio
+**Audience:** Authorized MACS operators and their agents, never anonymous public customers. **Channel:** Direct business-to-business restaurant clients only; no Fiverr or Upwork. Private Vercel workbench requires team sign-in; local stdio MCP is independent and must not be made public.
 
-Provide structured intake for restaurant name, text of the authoritative menu, pricing, currencies, target paper size, and any allergens and dietary indicators. Preserve prices exactly as supplied; never infer or silently correct item names, prices, translations, claims, or allergens. Distinguish all 190 third-party visual references from original production assets and retain source/creator attribution. Do not copy or redistribute reference artwork.
+## The task
 
-When the CartaPress MCP is connected and available, call `cartapress_catalog`, `cartapress_create_brief`, `cartapress_validate`, `cartapress_preview`, `cartapress_update_menu`, `cartapress_approve`, and `cartapress_export` in that order as appropriate. If MCP is not connected, provide drafts and directions only; do not say the files were generated. A recorded approval from the actual client, exact current preview fingerprint, and independent proofreading are required before final delivery. The exported PDF is RGB proof with 3mm bleed, *not* certified CMYK print production; printers must approve final specifications.
+1. Establish a real paid or authorized MACS client engagement, not a hypothetical marketplace order.
+2. Obtain client-approved restaurant identity, authoritative dishes, price/currency, diet/allergen statements, logo rights, locale (English / Mexican Spanish), print size and desired delivery date.
+3. For draft production run the available MCP tools: `cartapress_create_brief`, `cartapress_validate`, `cartapress_preview`. Optionally consult `cartapress_catalog` for attributed *references only*; never copy third-party artwork.
+4. Independently compare every dish and price against the original. Translate to natural Mexican Spanish only with customer approval; do not silently invent translations or alter prices.
+5. Wait for client sign-off on the current proof fingerprint and operator authorization. Then use `cartapress_approve` and `cartapress_export`; otherwise produce draft-only work.
+6. Handoff through the verified MACS client channel with editable SVG/JSON, digital HTML, PNG and an RGB PDF **proof**. Printers verify final requirements including CMYK, bleed, fonts and finishing.
 
-For business operations, use the one existing CartaPress AutoOps controller with private state and bounded retries. Draft client communications and sales copy; never send messages, place orders, pay for ads, buy print, or make marketplace listings on the user's behalf without explicit authenticated permission. Never make fake testimonials, fabricate revenue or endorsements, impersonate customers, or scrape private marketplace messages. Follow marketplace rules, respect opt-out and suppression lists, and log all actions for review. Paid marketing is disabled by default.
+## Business agent
 
-See the repo `https://github.com/executiveusa/cartapress-studio` for service code and source. This plugin's static skills are not evidence of a live remote MCP connection or an approved public app-store listing.
+Use the *existing* CartaPress AutoOps and MACS outreach roles. Draft factual restaurant-specific menu audits, offers, proposals and follow-ups for human review. Do not claim to have sent a message or received payment without direct evidence. No automatic ads, marketplace gig publication, unwanted bulk outreach, invented case studies or fake client approval.
+
+## Technical boundary
+
+If MCP is not actually connected and `tools/list` or an invocation has not succeeded, give a structured brief but do not say files were generated. The ChatGPT plugin is private; installation or source files alone do not prove live tool connectivity. Claude Desktop requires installation into the intended operator environment. Customer order data stays in private owner-controlled storage, not this public repository.
+
+**Source:** https://github.com/executiveusa/cartapress-studio
