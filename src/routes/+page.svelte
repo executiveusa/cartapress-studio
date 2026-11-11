@@ -86,7 +86,7 @@
     background-color:#17241c;
     background-image:
       linear-gradient(90deg, rgba(10,23,17,.94) 0%, rgba(10,23,17,.83) 23%, rgba(10,23,17,.44) 49%, rgba(10,23,17,.03) 84%),
-      url('https://v3b.fal.media/files/b/0ab21133/Pl1QiKGWFGp4LoeigNrcK_y00fBlP9.webp');
+      url('/images/menu-table-hero.webp');
     background-position:center center; background-size:cover; background-repeat:no-repeat;
   }
   .hero-copy{width:min(800px, 74%);padding:110px 4vw 115px max(6vw, 28px);z-index:1;}
@@ -104,7 +104,7 @@
       background-position:62% center;
       background-image:
        linear-gradient(0deg, rgba(10,23,17,.94) 0%, rgba(10,23,17,.80) 35%, rgba(10,23,17,.12) 84%),
-       url('https://v3b.fal.media/files/b/0ab21133/Pl1QiKGWFGp4LoeigNrcK_y00fBlP9.webp');
+       url('/images/menu-table-hero.webp');
     }
     .hero-copy{width:100%;padding:150px 6% 55px}
     .hero h1{font-size:clamp(44px,10vw,75px)}
