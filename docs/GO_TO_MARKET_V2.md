@@ -1,65 +1,61 @@
-# CartaPress Studio — paid service funnel and agent operating contract (2026-11-11)
+# CartaPress — MACS direct B2B service system
 
-## Positioning: sell the outcome, not the AI
+**Decision: USE — internal only.** MACS owns the client contract, communication, billing and deliverables. CartaPress is the protected production engine behind those services, not a marketplace storefront.
 
-**ICP:** time-constrained owner-operated independent restaurant, café, taquería or food truck with a menu needing updates, clear prices, bilingual presentation or print/digital handoff.  
-**Trigger:** new restaurant opening, rising prices, seasonal dishes, poor photographed menu, QR launch, or printer rejection.  
-**Offer promise:** "Give us your current dishes and prices. Choose a direction. Get an original readable menu in editable, digital and printer-proof formats."  
-**Not promised:** sales uplift, actual print production, automatic marketplace sales, printer partnerships, 100% autonomous contact or client approval.  
-**Main friction:** no one currently receives a lead and no payment destination is configured. Do not call a downloaded brief a qualified sales lead.
+## Positioning
 
-## Verified competitive floor
+**Customer:** independent restaurants, cafés, caterers, small chains, food trucks and hospitality operators.  
+**Observed trigger:** inaccurate prices, unreadable menus, missing mobile/QR menu, seasonal updates, opening/rebrand, English/Spanish expansion.  
+**What we sell:** relief from menu maintenance and a credible, cohesive menu visitors can read. We do not sell software seats or design templates.
 
-Live Fiverr category: https://www.fiverr.com/categories/graphics-design/buy/menu-design/restaurant — 3,000+ listed results at inspection; common entry listings $5–$30, premium profiles $70–$150. Fiverr's category FAQ cites typical menu design cost $50–$60.  
-Upwork category: https://www.upwork.com/services/menu-design/get/restaurant — observed listings starting around $20–$50, with print/QR combinations.  
-**Consequence:** A $79/$179/$399 offer must prove different value: original menu + readability audit + price integrity + bilingual option + editable ownership + digital HTML + printer specification, not a generic graphic.
+## Direct B2B offer ladder
 
-## Four-stage service funnel
+1. **Menu Clarity Audit** — 1-page qualified menu readability/pricing consistency assessment from an authorized or publicly visible menu, with factual screenshots and no claim of client affiliation.
+2. **Menu Rescue Sprint** — approved source dishes and prices → original design, revised typography, print/digital proof, source files, specified revisions and print coordination.
+3. **Sovereign Menu System** — portable mobile HTML, QR, bilingual EN/ES-MX where authorized, full ownership handover with editable files and print brief.
+4. **MAXX Menu Operations** — optional ongoing verified menu updates, seasonal campaigns and review of client-owned public restaurant content. Test demand after successful paid work.
 
-1. **Attract:** two marketplace listings (English and MX-appropriate offer copy), 10 original portfolio examples rather than scraped inspiration art, targeted replies only to relevant live job postings, short video showing real input→preview→PDF output. Organic outreach must respect sender identity, channel permissions and opt-outs.
-2. **Demonstrate (free):** landing page owner can choose visual reference, edit genuine dish list, see live design, download browser demo. No sign-up barrier. No fake testimonials or popular badges.
-3. **Convert (paid, not yet connected):** Upwork/Fiverr order channel or owner-approved checkout; the customer chooses **Refresh $79**, **Signature $179**, or **Full Table $399**; only then create order in protected queue. An order needs platform receipt, scope and authorized content. Current page only prepares a brief, so this stage is OPEN.
-4. **Retain/expand (experiment):** test post-delivery menu maintenance request after the first three paid customers. Candidate $49/month for minor text/price updates is a **hypothesis**, not a live price. Printing commission is a separate hypothesis requiring actual affiliate approval and a tracked referral.
+**Price and SLA:** quote directly through MACS after a verified discovery and defined item count; previous public $79/$179/$399 prices are historical experiments, not active public prices.
 
-## Existing fixed-scope packages (retained)
+## Actual funnel (evidence only)
 
-| Offer | Visitor pain | Scope | Candidate SLA |
-|---|---|---|---|
-| Refresh — $79 | Existing menu looks dated, changes needed | Up to 25 menu items, 1 design, 2 revisions, files | 3 business days (subject to client inputs) |
-| Signature — $179 | Menu needs full redesign, digital + print | Up to 60 items, 2 concepts, 3 revisions, original files | 4 business days (subject to inputs) |
-| Full Table — $399 | Opening, bilingual or multiple menus | Up to 100 items, 2 formats, bilingual option, print handoff | 6 business days (subject to inputs) |
+1. Identify 10 qualified local businesses; inspect their actual public menu and mobile experience, date findings.
+2. Choose 3 strongest specific opportunities and draft concise bilingual outreach: one observed issue, one relevant sample, optional short meeting.
+3. Operator approves sender, recipient, wording and contact method; publish/send only through a verified MACS account.
+4. Log response → qualified call → written scope → quote → accepted quote → verified deposit/payment → approved source menu.
+5. Create a private project in CartaPress. Run editor and local MCP, capture proof, independent QA, client sign-off and final delivery receipt.
+6. Ask for a referral or seasonal update after a successful handoff.
 
-Any file called "print-ready" must be proofed for the target printer; current PDF is RGB and not a certified CMYK press proof.
+**Do not score sales from drafts.** No connected intake, CRM, inbox or payment means the funnel's automated end-to-end status remains NOT CONNECTED.
 
-## Agent routing — no second framework
+## Lean measurement
 
-- **Discovery:** research intent-matched public posts and restaurant menu problems; write a specific diagnosis, no scraped unsolicited bulk blast.
-- **Qualify:** capture authorized restaurant name, menu source, prices, desired style, trim region and deadline; mark unknown fields.
-- **Design:** run local `cartapress_create_brief`, `cartapress_validate`, `cartapress_preview`; provide real draft and immutable approval fingerprint.
-- **Verify:** cross-check dish names and prices against customer source; no model-invented prices or allergen claims.
-- **Deliver:** match client sign-off and operator authorization before `cartapress_export`; deposit artifacts into customer-authorized order channel.
-- **Grow:** after delivery, request permission to propose monthly updates; report actual reply→order→delivery→repeat metrics.
-- **Operations:** AutoOps local order inbox/ledger handles idempotency and retries; no public remote MCP until authenticated owner-controlled infrastructure exists.
+- Weekly unique researched accounts
+- Qualified owner-approved outreach actually sent
+- Replies / calls / accepted scoped quotes / verified paid contracts
+- Median actual labor per menu, material revisions, QA defects and delivery timeliness
+- Repeat jobs requested and invoiced
 
-## Measurable validation (not forecasts)
+**Initial validation:** 3 independently verified paying restaurant customers within 30 days of authorized outreach; count only settled/verified invoices. This is a *target*, not a prediction.
 
-**30-day minimum test:** 30 individually qualified customer opportunities, at least 10 tailored proposals sent from an authorized account, 3 real paid orders, actual hours spent and refund rate logged.  
-**Illustrative service gross:** 3 × $179 = $537; 10 × $179 = $1,790; 20 × $179 = $3,580. All **before** marketplace fees, taxes, production costs, marketing, and refunds. These are scenarios, not a prediction.  
-**Gates to increased volume:** first 3 paying strangers, 80%+ orders delivered within promised scope and time, fewer than 2 material pricing/menu data errors per 100 items, no unauthorized publication.  
-**Critical KPI:** completed paid orders per 100 qualified visits (currently no instrumented baseline).
+## Internal agent boundaries
 
-## Event contract, not implemented analytics
+- **Client relationship agent:** real research and drafts; external messaging requires approval.
+- **Production agent:** existing local MCP with verified `tools/list`, menu validation and cryptographic approval gate.
+- **AutoOps:** existing queue/idempotency, private ledger, no pretend marketplace purchases.
+- **Review agent:** independent price/locale and print-proofer; must compare customer source.
+- **Human:** sales terms, actual client relationship, authorization, finances and release to printer.
 
-`hero_primary_click` → `sample_edited` → `style_selected` → `proof_exported` → `service_order_submitted` → `payment_verified` → `delivery_approved` → `repeat_purchase`.  
-Avoid claiming conversion until events and receipt-to-order correlation are installed with a privacy-aware owner-controlled destination.
+The project must not accumulate additional orchestrators, CRM products or ad tools before the first verified sale.
 
-## Near-term commercial actions
+## Security and trust
 
-1. Verify seller accounts and create the first listing or live checkout destination using already-created authentic portfolio assets.
-2. Connect the prepared design brief/order receipt to the existing AutoOps queue; test a synthetic order and actual delivery without invented customer records.
-3. Run first 10 targeted prospects. Inspect price objections, scope requests and time to delivery; revise messaging only after real behavior.
-4. Partner/affiliate printing only after real enrollment and tested tracking, not by relabeling plain links.
+Vercel SSO now covers *all* deployments. Pages and API return noindex; `robots.txt` disallows crawling. Source GitHub repository remains public until explicitly changed and is **not** a place to store client content or secrets. Staff and agents use private storage, never repository fixtures.
 
-## Non-goals
+## Verification and remaining gates
 
-Do not build a full CRM, more agents, speculative SaaS subscriptions, ad spend optimization or print purchasing automation before the first legitimate sale; build only enough delivery infrastructure to make current offers reliable.
+- Bilingual internal home and staff studio routes have CI + Vercel preview evidence.
+- Claude plugin MCP transport and manifest have automated integration checks; ChatGPT plugin exists privately but its live actions still need authenticated end-to-end proof.
+- Document preview and RGB print proofs are not production-certified CMYK files.
+- Vibe mobile audit requires 320–1440px viewport and keyboard/interaction proof before SHIP.
+- First paid MACS B2B customer remains unverified.
