@@ -64,3 +64,9 @@ test('approval fingerprint invalidates every material export setting',()=>{
    assert.notEqual(approvalFingerprint({...base,[k]:v}),hash,`failed to capture ${k}`);
  assert.equal(approvalFingerprint({...base,status:'approved',updatedAt:'later',approval:{fake:true}}),hash);
 });
+
+test('preserves explicit currency symbols in unseparated source text',()=>{
+ const rows=parseMenu('DRINKS\nCoffee €12\nTaco MX$39\nJuice £4,50\nTea 3');
+ assert.deepEqual(rows.map(r=>r.price),['€12','MX$39','£4,50','3']);
+ assert.deepEqual(rows.map(r=>r.title),['Coffee','Taco','Juice','Tea']);
+});

@@ -17,9 +17,18 @@
   $: filtered=refs.filter(r=>(category==='all'||r.cat===category)&&(source==='all'||r.source===source)&&(!favoritesOnly||selected.some(x=>x.href===r.href))&&(`${r.title} ${r.by} ${r.note}`.toLowerCase().includes(search.toLowerCase())));
   $: menuItems=parseMenu(menuText);
   $: theme=getStyle(styleId);
-  $: pageCount=svgPageCount({menuText,printSize});
-  $: previewSVG=buildSVG({restaurant,tagline,subtitle,menuText,styleId,footer,currency,printSize},0);
-  $: issues=validateBrief({restaurant,menuText,styleId}).issues;
+  $: {
+    const currentBrief={restaurant,tagline,subtitle,menuText,styleId,footer,currency,printSize};
+    issues=validateBrief(currentBrief).issues;
+    try {
+      pageCount=svgPageCount(currentBrief);
+      previewSVG=buildSVG(currentBrief,0);
+    } catch (error) {
+      pageCount=0;
+      previewSVG='';
+      issues=[...issues, 'Layout cannot fit this content: '+(error instanceof Error ? error.message : String(error))];
+    }
+  }
   function toggleRef(r){selected=selected.some(x=>x.href===r.href)?selected.filter(x=>x.href!==r.href):[...selected,r].slice(0,8);notice=`${selected.length} reference${selected.length===1?'':'s'} saved to the design brief.`}
   function presetFrom(r){const lookup={mex:'cantina',vintage:'editorial',photo:'modern',elegant:'editorial',boards:'noir',canva:'botanical'};styleId=lookup[r.cat]||'editorial';toggleRef(r);}
   function moveSlider(dir){if(gallery)gallery.scrollBy({left:dir*340,behavior:'smooth'});currentIndex=Math.max(0,currentIndex+dir)}

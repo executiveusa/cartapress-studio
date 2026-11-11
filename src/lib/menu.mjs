@@ -7,7 +7,7 @@ export const STYLE_OPTIONS = [
   { id:'noir', title:'After Dark', label:'Cocktails & late-night rooms', paper:'#171e23', ink:'#f2ece1', accent:'#d7a96b', font:'Georgia, serif' }
 ];
 export const CATEGORIES = { all:'All directions', mex:'Latin & Mexican', vintage:'Retro typography', photo:'Photo led', elegant:'Quiet luxury', boards:'Wall & TV boards', canva:'Canva inspiration' };
-const priceRe = /^(.*?)\s+(?:MX\$|US\$|A\$|\$|€|£)?\s*(\d+(?:[.,]\d{1,2})?)\s*$/i;
+const priceRe = /^(.*?)\s+(?:(MX\$|US\$|A\$|\$|€|£)\s*)?(\d+(?:[.,]\d{1,2})?)\s*$/i;
 const asText = value => value == null ? '' : String(value).trim();
 
 // Matches the MenuVision structured contract without depending on that project at runtime.
@@ -39,7 +39,7 @@ export function parseMenu(input) {
     }
     const parts = raw.split(/\s*\|\s*/);
     let [title='',description='',price='',nameSecondary='',descriptionSecondary='',allergens='',dietary=''] = parts;
-    if(parts.length===1) {const match=title.match(priceRe);if(match){title=match[1];price=match[2];}}
+    if(parts.length===1) {const match=title.match(priceRe);if(match){title=match[1];price=(match[2]||'')+match[3];}}
     if(parts.length===2 && /^(?:MX\$|US\$|A\$|\$|€|£)?\s*\d+(?:[.,]\d{1,2})?$/i.test(description)){price=description;description='';}
     if(asText(title)) items.push({section,title:asText(title),description:asText(description),price:asText(price),nameSecondary:asText(nameSecondary),descriptionSecondary:asText(descriptionSecondary),allergens:asText(allergens),dietary:asText(dietary).split(',').map(x=>x.trim()).filter(Boolean),variants:[],code:''});
   }

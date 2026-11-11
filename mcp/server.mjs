@@ -3,7 +3,7 @@
 import {Server} from '@modelcontextprotocol/sdk/server/index.js';
 import {StdioServerTransport} from '@modelcontextprotocol/sdk/server/stdio.js';
 import {ListToolsRequestSchema,CallToolRequestSchema} from '@modelcontextprotocol/sdk/types.js';
-import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {mkdir,readFile,writeFile,chmod} from 'node:fs/promises';
 import {randomUUID} from 'node:crypto';
 import path from 'node:path';
 import {validateBrief,parseMenu,STYLE_OPTIONS,slugify} from '../src/lib/menu.mjs';
@@ -14,6 +14,9 @@ import {composeMenu,getPageSize} from '../src/lib/layout.mjs';
 import {approvalFingerprint} from '../src/lib/approval.mjs';
 const fingerprint=approvalFingerprint;
 const root=path.resolve(process.env.CARTAPRESS_PROJECTS_DIR||'./projects');
+// Private client records: never rely on a permissive host umask or existing file modes.
+async function secureDir(dir){await mkdir(dir,{recursive:true,mode:0o700});await chmod(dir,0o700)}
+async function secureWrite(file,data){await writeFile(file,data,{mode:0o600});await chmod(file,0o600)}
 const reply=(data)=>({content:[{type:'text',text:JSON.stringify(data,null,2)}]});
 const textField=(description,required=true)=>({type:'string',description});
 const tools=[
@@ -28,7 +31,7 @@ const tools=[
 ];
 function fileFor(id){if(!/^[a-z0-9-]{5,100}$/.test(id))throw Error('Invalid project ID');return path.join(root,id,'brief.json')}
 async function read(id){return JSON.parse(await readFile(fileFor(id),'utf8'))}
-async function save(id,obj){await mkdir(path.dirname(fileFor(id)),{recursive:true});await writeFile(fileFor(id),JSON.stringify(obj,null,2)+'\n',{mode:0o600})}
+async function save(id,obj){await secureDir(root);await secureDir(path.dirname(fileFor(id)));await secureWrite(fileFor(id),JSON.stringify(obj,null,2)+'\n')}
 const server=new Server({name:'cartapress-agent',version:'0.1.0'},{capabilities:{tools:{}}});
 server.setRequestHandler(ListToolsRequestSchema,async()=>({tools}));
 server.setRequestHandler(CallToolRequestSchema,async(req)=>{
@@ -41,7 +44,7 @@ server.setRequestHandler(CallToolRequestSchema,async(req)=>{
     return reply({projectId:id,status:'draft',validation:validateBrief(doc)});
   }
   if(name==='cartapress_validate') {const doc=await read(args.projectId);return reply({projectId:doc.id,status:doc.status,validation:validateBrief(doc),pageCount:composeMenu(doc).pages.length,contentHash:fingerprint(doc)})}
-  if(name==='cartapress_preview'){const doc=await read(args.projectId);const v=validateBrief(doc);if(!v.ok)throw Error(v.issues.join(' '));const dir=path.join(path.dirname(fileFor(doc.id)),'preview');await mkdir(dir,{recursive:true});const count=svgPageCount(doc);const files=[];for(let i=0;i<count;i++){const fn=`draft-page-${i+1}.svg`;await writeFile(path.join(dir,fn),buildSVG(doc,i));files.push(fn)}await writeFile(path.join(dir,'digital-menu.html'),buildDigitalHtml(doc));files.push('digital-menu.html');const hash=fingerprint(doc);doc.previewHash=hash;doc.status='proof';await save(doc.id,doc);return reply({projectId:doc.id,status:doc.status,previewHash:hash,previewDirectory:dir,files,clientApprovalRequired:true,warning:'Draft proof only: confirm every price and verify printer requirements.'});}
+  if(name==='cartapress_preview'){const doc=await read(args.projectId);const v=validateBrief(doc);if(!v.ok)throw Error(v.issues.join(' '));const dir=path.join(path.dirname(fileFor(doc.id)),'preview');await secureDir(dir);const count=svgPageCount(doc);const files=[];for(let i=0;i<count;i++){const fn=`draft-page-${i+1}.svg`;await secureWrite(path.join(dir,fn),buildSVG(doc,i));files.push(fn)}await secureWrite(path.join(dir,'digital-menu.html'),buildDigitalHtml(doc));files.push('digital-menu.html');const hash=fingerprint(doc);doc.previewHash=hash;doc.status='proof';await save(doc.id,doc);return reply({projectId:doc.id,status:doc.status,previewHash:hash,previewDirectory:dir,files,clientApprovalRequired:true,warning:'Draft proof only: confirm every price and verify printer requirements.'});}
   if(name==='cartapress_update_menu'){const doc=await read(args.projectId);if(doc.status==='exported')throw Error('Delivered project is frozen; create a new version');doc.menuText=String(args.menuText);doc.status='draft';doc.approval=null;doc.previewHash=null;doc.updatedAt=new Date().toISOString();await save(args.projectId,doc);return reply({projectId:doc.id,status:doc.status,validation:validateBrief(doc)})}
   if(name==='cartapress_approve'){
    const doc=await read(args.projectId);const v=validateBrief(doc);if(!v.ok)throw Error(v.issues.join(' '));
@@ -51,17 +54,17 @@ server.setRequestHandler(CallToolRequestSchema,async(req)=>{
   }
   if(name==='cartapress_export'){
    const doc=await read(args.projectId);if(doc.status!=='approved'||!doc.approval?.pricesConfirmed||doc.approval.previewHash!==fingerprint(doc))throw Error('Client approval gate is not satisfied for this exact revision');
-   const base=path.dirname(fileFor(doc.id));const output=path.join(base,'output');await mkdir(output,{recursive:true});
+   const base=path.dirname(fileFor(doc.id));const output=path.join(base,'output');await secureDir(output);
    const files=[];
-   for(let page=0;page<svgPageCount(doc);page++){const name=`menu-page-${String(page+1).padStart(2,'0')}.svg`;await writeFile(path.join(output,name),buildSVG(doc,page));files.push(name)}
-   const bytes=await buildPDF(doc);await writeFile(path.join(output,'menu-print-proof.pdf'),bytes);files.push('menu-print-proof.pdf');
-   await writeFile(path.join(output,'menu-data.json'),JSON.stringify(parseMenu(doc.menuText),null,2));files.push('menu-data.json');
-   await writeFile(path.join(output,'digital-menu.html'),buildDigitalHtml(doc));files.push('digital-menu.html');
-   await writeFile(path.join(output,'prepress.txt'),`${getPageSize(doc).name} ${getPageSize(doc).widthMM}x${getPageSize(doc).heightMM}mm trim, 3mm bleed; RGB PDF is a proof, not certified CMYK. Independently verify menu facts and printer specifications.\n`);files.push('prepress.txt');
-   const manifest={projectId:doc.id,files,approval:doc.approval,contentHash:fingerprint(doc),warning:'RGB PDF proof, not guaranteed CMYK press-ready. Printer preflight required. References not licensed for reproduction.'};await writeFile(path.join(output,'manifest.json'),JSON.stringify(manifest,null,2));files.push('manifest.json');
+   for(let page=0;page<svgPageCount(doc);page++){const name=`menu-page-${String(page+1).padStart(2,'0')}.svg`;await secureWrite(path.join(output,name),buildSVG(doc,page));files.push(name)}
+   const bytes=await buildPDF(doc);await secureWrite(path.join(output,'menu-print-proof.pdf'),bytes);files.push('menu-print-proof.pdf');
+   await secureWrite(path.join(output,'menu-data.json'),JSON.stringify(parseMenu(doc.menuText),null,2));files.push('menu-data.json');
+   await secureWrite(path.join(output,'digital-menu.html'),buildDigitalHtml(doc));files.push('digital-menu.html');
+   await secureWrite(path.join(output,'prepress.txt'),`${getPageSize(doc).name} ${getPageSize(doc).widthMM}x${getPageSize(doc).heightMM}mm trim, 3mm bleed; RGB PDF is a proof, not certified CMYK. Independently verify menu facts and printer specifications.\n`);files.push('prepress.txt');
+   const manifest={projectId:doc.id,files,approval:doc.approval,contentHash:fingerprint(doc),warning:'RGB PDF proof, not guaranteed CMYK press-ready. Printer preflight required. References not licensed for reproduction.'};await secureWrite(path.join(output,'manifest.json'),JSON.stringify(manifest,null,2));files.push('manifest.json');
    doc.status='exported';doc.updatedAt=new Date().toISOString();await save(doc.id,doc);return reply({projectId:doc.id,outputDirectory:output,files,printQA:'PENDING_EXTERNAL_PRINTER_PROOF'});
   }
   throw Error(`Unknown tool: ${name}`)
  } catch(e) {return {isError:true,content:[{type:'text',text:e instanceof Error?e.message:String(e)}]}}
 });
-await mkdir(root,{recursive:true});await server.connect(new StdioServerTransport());
+await secureDir(root);await server.connect(new StdioServerTransport());
