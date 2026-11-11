@@ -155,6 +155,7 @@ export const esMX = {
   "FIRST PAGE": "PRIMERA PÁGINA",
   "Save style": "Guardar estilo",
   "Select": "Elegir",
-  "Select design inspiration": "Elegir diseño de referencia"
+  "Select design inspiration": "Elegir diseño de referencia",
+  "TWO CONCEPTS": "DOS PROPUESTAS"
 };
 export function translate(key,locale='en'){return locale==='es'?(esMX[key] ?? key):key;}
