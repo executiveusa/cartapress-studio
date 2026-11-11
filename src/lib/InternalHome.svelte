@@ -33,7 +33,14 @@
         <div><span>03</span><h3>{t('Approve and hand off','Aprobar y entregar')}</h3><p>{t('Get explicit approval and verify the printer specifications before client delivery.','Obtén la aprobación y verifica las especificaciones de impresión antes de entregar.')}</p></div>
       </div>
     </section>
-    <section class="details" aria-labelledby="scope-heading"><div><span>{t('WHAT THIS IS','QUÉ ES')}</span><h2 id="scope-heading">{t('A tool behind the service.','La herramienta detrás del servicio.')}</h2></div><p>{t('MACS sells and manages the client relationship directly. CartaPress prepares the design files. A local MCP handles private agent workflows; the browser editor makes draft previews. Payment, CRM and client fulfillment are separate, and must be verified before being called automated.','MACS vende y atiende directamente a cada cliente. CartaPress prepara los archivos de diseño. El MCP local organiza el trabajo de agentes y el editor web genera pruebas. Cobros, CRM y entregas son procesos separados que requieren verificación.')}</p></section>
+    <section class="proof" aria-labelledby="proof-heading">
+  <div class="proof-intro"><span class="eyebrow">{t('REAL OUTPUT, NOT ANOTHER PROMISE','UNA PRUEBA REAL, NO OTRA PROMESA')}</span><h2 id="proof-heading">{t('A list becomes a menu.','De una lista a un menú.')}</h2><p>{t('An illustrative example made with CartaPress—not a customer case study.','Ejemplo ilustrativo hecho con CartaPress; no es un trabajo de cliente.')}</p></div>
+  <div class="proof-pair" aria-label={t('Before and after menu formatting example','Ejemplo de una lista de platillos antes y después')}>
+    <div class="input-proof"><small>{t('SOURCE DISH LIST','LISTA ORIGINAL')}</small><p>{t('STARTERS','ENTRADAS')}</p><div>{t('Esquites','Esquites')} | 95<br/>{t('Guacamole','Guacamole')} | 145<br/>{t('Enchiladas','Enchiladas')} | 195</div></div>
+    <span class="arrow" aria-hidden="true">→</span>
+    <div class="output-proof"><span>{t('LA COSECHA','LA COSECHA')}</span><i>{t('Seasonal kitchen','Cocina de temporada')}</i><div class="proof-rule"></div><small>{t('THE MENU','EL MENÚ')}</small><p>Esquites <b>95</b></p><p>Guacamole <b>145</b></p><p>Enchiladas <b>195</b></p></div>
+  </div>
+</section>
   </main>
   <footer><span>© 2026 CARTAPRESS · MACS</span><span>{t('Private production tool · Versioned source and approval gates','Herramienta interna · Código versionado y aprobaciones')}</span></footer>
 </div>
@@ -52,4 +59,13 @@
   footer{padding:24px clamp(20px,8vw,120px);font-size:11px;letter-spacing:.5px;display:flex;justify-content:space-between;gap:30px}
   @media(max-width:850px){.hero{grid-template-columns:1fr;display:flex;flex-direction:column-reverse}.visual{height:42svh;min-height:255px;background-position:center}.copy{align-self:auto;padding:44px 6% 70px}.copy h1{font-size:clamp(48px,11vw,78px)}.workflow,.details{padding-left:6%;padding-right:6%}.details{grid-template-columns:1fr;gap:4px}.details p{margin:0}.route{grid-template-columns:1fr}.route>div{border-right:0;border-bottom:1px solid #b9c2b4;padding:22px 0}.route>div:last-child{border-bottom:0}}
   @media(max-width:390px){.masthead{padding:0 15px;height:76px}.wordmark{font-size:17px}.wordmark small{font-size:9px;margin-left:3px}.internal{display:none}.top-links{gap:8px}.copy{padding:32px 6% 55px}.copy h1{font-size:clamp(45px,11.5vw,58px)}.owner-note{line-height:1.5}footer{flex-direction:column;gap:8px}}
+
+  .proof{background:#e7e2d5;padding:clamp(48px,7vw,95px) clamp(20px,8vw,120px);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(22px,5vw,100px)}
+  .proof-intro .eyebrow{color:#aa5f40}.proof h2{font:400 clamp(36px,4.4vw,66px)/1.08 'DM Serif Display',Georgia,serif;letter-spacing:-1.3px;margin:16px 0}.proof-intro p{line-height:1.65;color:#5d675a;font-size:14px;max-width:440px}
+  .proof-pair{display:flex;justify-content:center;align-items:center;min-width:0;gap:12px}
+  .input-proof,.output-proof{min-height:275px;width:min(44%,235px);padding:24px 18px;box-shadow:0 18px 28px #1b2e2318}
+  .input-proof{background:#f8f7f4;color:#394338;transform:rotate(-4deg);font:12px/2 'Space Mono',monospace}.input-proof small{font-size:10px;letter-spacing:1px;color:#777}.input-proof p{margin:29px 0 5px}
+  .output-proof{background:#fff7e5;color:#314735;transform:rotate(4deg);font-family:Georgia,serif}.output-proof>span{display:block;text-align:center;font-size:22px;letter-spacing:1.4px}.output-proof i{font-size:12px;display:block;text-align:center;margin:8px 0 24px}.proof-rule{height:1px;background:#b3a48c}.output-proof small{display:block;margin:14px 0;font:700 10px 'Space Mono',monospace;color:#9b5d3f}.output-proof p{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted #c9b99d;font-size:13px;padding:1px 0}.output-proof b{font-weight:400}.arrow{font-size:26px;color:#ac674b}
+  @media(max-width:850px){.proof{grid-template-columns:1fr;gap:28px}.proof-pair{justify-content:flex-start}.input-proof,.output-proof{width:min(43%,245px)}}
+  @media(max-width:370px){.proof-pair{gap:8px}.input-proof,.output-proof{padding:16px 10px;min-height:235px}.output-proof>span{font-size:17px}.input-proof{font-size:10px}.arrow{font-size:20px}}
 </style>
