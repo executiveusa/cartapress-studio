@@ -1,8 +1,8 @@
-name: Vendor original fal.ai hero artwork
+name: Vendor new full-screen fal.ai hero artwork
 on:
   push:
     branches:
-      - feat/full-bleed-fal-menu-hero
+      - fix/p1-mobile-usability-preserve-design
     paths:
       - .github/workflows/vendor-fal-hero.yml
   workflow_dispatch:
@@ -20,14 +20,14 @@ jobs:
         run: |
           mkdir -p static/images
           curl -fL --retry 3 --retry-delay 2 --connect-timeout 20 --max-time 150 \
-            'https://v3b.fal.media/files/b/0ab21133/Pl1QiKGWFGp4LoeigNrcK_y00fBlP9.webp' \
-            --output static/images/menu-table-hero.webp
-          test "$(wc -c < static/images/menu-table-hero.webp)" -gt 10000
-          file static/images/menu-table-hero.webp | grep -qi 'Web/P image'
+            'https://v3b.fal.media/files/b/0ab23fe5/Z9RxYxb0PNs9QzgVsaZkY_DkoaUmNx.webp' \
+            --output static/images/menu-table-hero-fullscreen.webp
+          test "$(wc -c < static/images/menu-table-hero-fullscreen.webp)" -gt 10000
+          file static/images/menu-table-hero-fullscreen.webp | grep -qi 'Web/P image'
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add static/images/menu-table-hero.webp
+          git add static/images/menu-table-hero-fullscreen.webp
           if ! git diff --cached --quiet; then
-            git commit -m 'assets: store original fal.ai menu tabletop hero'
+            git commit -m 'assets: store newly approved fullscreen fal.ai tabletop candidate'
             git push
           fi
