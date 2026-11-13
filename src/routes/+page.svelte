@@ -81,12 +81,12 @@
 
   /* Original fal.ai tabletop photography, set as a full-width editorial hero. */
   .hero{
-    min-height: min(870px, 94svh);
+    min-height:100vh;min-height:100svh;
     width:100%; display:flex; align-items:center; isolation:isolate;
     background-color:#17241c;
     background-image:
       linear-gradient(90deg, rgba(10,23,17,.94) 0%, rgba(10,23,17,.83) 23%, rgba(10,23,17,.44) 49%, rgba(10,23,17,.03) 84%),
-      url('/images/menu-table-hero.webp');
+      url('/images/menu-table-hero-fullscreen.webp');
     background-position:center center; background-size:cover; background-repeat:no-repeat;
   }
   .hero-copy{width:min(800px, 74%);padding:110px 4vw 115px max(6vw, 28px);z-index:1;}
@@ -100,11 +100,11 @@
   .hero-foot{border-top-color:rgba(255,255,255,.38);color:#e5e5d9;max-width:550px}
   .hero .pillstar,.hero .asterisk{color:#efc596}
   @media(max-width:760px){
-    .hero{min-height:740px;min-height:90svh;align-items:flex-end;
+    .hero{min-height:100vh;min-height:100svh;align-items:flex-end;
       background-position:62% center;
       background-image:
        linear-gradient(0deg, rgba(10,23,17,.94) 0%, rgba(10,23,17,.80) 35%, rgba(10,23,17,.12) 84%),
-       url('/images/menu-table-hero.webp');
+       url('/images/menu-table-hero-fullscreen.webp');
     }
     .hero-copy{width:100%;padding:150px 6% 55px}
     .hero h1{font-size:clamp(44px,10vw,75px)}
